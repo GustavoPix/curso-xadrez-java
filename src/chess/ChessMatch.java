@@ -13,6 +13,13 @@ public class ChessMatch {
 		board = new Board(8, 8);
 		initilSetup();
 	}
+	
+	public boolean[][] possibleMoves(ChessPosition sourceposition)
+	{
+		Position position = sourceposition.toPosition();
+		validadeSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
 
 	public ChessPiece[][] getPieces() {
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
